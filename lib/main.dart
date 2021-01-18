@@ -17,6 +17,7 @@ import 'screens/mboFB.dart';
 import 'screens/sharjeelFB.dart';
 import 'screens/psx-announcements.dart';
 import 'package:firebase_core/firebase_core.dart' as firebase_core;
+import 'screens/delete-account.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
         '/mboFB': (context) => MBOFB(),
         '/sharjeelFB': (context) => SharjeelFB(),
         '/announcements': (context) => Announcements(),
+        '/deleteAccount': (context) => DeleteProfile(),
       },
     );
   }

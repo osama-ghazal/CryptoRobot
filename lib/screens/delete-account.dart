@@ -4,12 +4,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:StockVest/services/auth.dart';
 import 'package:StockVest/constants.dart';
 
-class UpdateProfile extends StatefulWidget {
+class DeleteProfile extends StatefulWidget {
   @override
-  _UpdateProfileState createState() => _UpdateProfileState();
+  _DeleteProfileState createState() => _DeleteProfileState();
 }
 
-class _UpdateProfileState extends State<UpdateProfile> {
+class _DeleteProfileState extends State<DeleteProfile> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
@@ -23,51 +23,6 @@ class _UpdateProfileState extends State<UpdateProfile> {
   String formEmail = '';
   String oldPassword = '';
 
-  createAlertBox(BuildContext context) {
-    return showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-              title: Text(
-                'CONFIRMATION',
-                style: TextStyle(
-                    fontFamily: 'Comfortaa', fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              content: Text(
-                'ARE YOU SURE YOU WANT TO DELETE YOUR ACCOUNT?',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              actions: [
-                FlatButton(
-                    color: Colors.blueGrey[900],
-                    child: Text('DELETE MY ACCOUNT'),
-                    onPressed: () async {
-                      await user.delete();
-                      final snackBar = SnackBar(
-                        duration: Duration(seconds: 3),
-                        content: Text('Account successfully deleted!'),
-                        action: SnackBarAction(
-                          label: '',
-                          onPressed: () {},
-                        ),
-                      );
-
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-                      Navigator.popAndPushNamed(context, '/login');
-                    }),
-                FlatButton(
-                    color: Colors.blueGrey[900],
-                    child: Text('EXIT'),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    })
-              ]);
-        });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +30,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[900],
         automaticallyImplyLeading: true,
-        title: Text('Update Profile'),
+        title: Text('Delete Account'),
       ),
       drawer: Drawer(
         child: ListView(
@@ -169,7 +124,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
             height: 100.0,
             width: double.infinity,
             color: Colors.blueGrey[100],
-            child: Image.asset('images/update-icon.png',
+            child: Image.asset('images/delete-i-2.png',
                 height: 400, width: 100, fit: BoxFit.contain),
           ),
           Container(
@@ -178,7 +133,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
             width: double.infinity,
             color: Colors.blueGrey[100],
             child: Text(
-              'UPDATE YOUR PROFILE',
+              'DELETE YOUR ACCOUNT',
               style: TextStyle(
                   color: Colors.grey[900],
                   fontSize: 20.0,
@@ -212,46 +167,11 @@ class _UpdateProfileState extends State<UpdateProfile> {
                   width: 300,
                   child: TextFormField(
                       obscureText: true,
-                      validator: (value) {
-                        if (value.length < 6) {
-                          return "Please enter at least 6 characters!";
-                        } else {
-                          password = value;
-                          oldPassword = value;
-                          return null;
-                        }
-                      },
-                      textAlign: TextAlign.left,
-                      decoration: InputDecoration(
-                          icon: Icon(Icons.lock), hintText: 'Old Password')),
-                ),
-                Container(
-                  width: 300,
-                  child: TextFormField(
-                      obscureText: true,
-                      validator: (value) {
-                        if (value.length < 6) {
-                          return "Please enter at least 6 characters!";
-                        } else {
-                          password = value;
-                          passwordCheck = value;
-                          return null;
-                        }
-                      },
-                      textAlign: TextAlign.left,
-                      decoration: InputDecoration(
-                          icon: Icon(Icons.lock), hintText: 'New Password')),
-                ),
-                Container(
-                  width: 300,
-                  child: TextFormField(
-                      obscureText: true,
                       validator: (val) {
-                        if (val != passwordCheck) {
-                          return "The passwords don't match";
-                        } else if (val.length < 6) {
+                        if (val.length < 6) {
                           return "Please enter at least 6 characters!";
                         } else {
+                          password = val;
                           return null;
                         }
                       },
@@ -260,27 +180,26 @@ class _UpdateProfileState extends State<UpdateProfile> {
                           icon: Icon(Icons.lock),
                           hintText: 'Confirm Password')),
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: 20.0),
                 Container(
                   margin: EdgeInsets.only(top: 10.0),
                   child: FlatButton(
                       color: Colors.blueGrey[900],
-                      child: Text('UPDATE', style: buttonStyle),
+                      child: Text('DELETE ACCOUNT', style: buttonStyle),
                       onPressed: () async {
                         final snackBar = SnackBar(
                           duration: Duration(seconds: 10),
-                          content: Text('Updating your profile. Please wait'),
+                          content:
+                              Text('Matching credentials in the database!'),
                           action: SnackBarAction(
                             label: '',
-                            onPressed: () {
-                              // Some code to undo the change.
-                            },
+                            onPressed: () {},
                           ),
                         );
 
                         final snackBar2 = SnackBar(
                           duration: Duration(seconds: 3),
-                          content: Text('Profile successfully updated!'),
+                          content: Text('Account successfully deleted!'),
                           action: SnackBarAction(
                             label: '',
                             onPressed: () {
@@ -299,17 +218,18 @@ class _UpdateProfileState extends State<UpdateProfile> {
                           print(password);
                           await _auth.loginWithEmailAndPassword(
                               email, password);
-                          await user.updatePassword(password);
+                          await user.delete();
 
-                          if (formEmail != email) {
-                            error = 'Wrong Email';
+                          if (email == null) {
+                            error = 'Enter an email!';
                           }
-                          if (passwordCheck == null) {
+                          if (password == null) {
                             error = 'Please enter valid credentials!';
                           } else {
                             ScaffoldMessenger.of(context).hideCurrentSnackBar();
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(snackBar2);
+                            Navigator.popAndPushNamed(context, '/login');
                           }
                         }
                       }),

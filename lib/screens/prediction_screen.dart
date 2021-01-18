@@ -49,6 +49,10 @@ class _PredictionScreenState extends State<PredictionScreen> {
   String companyCode = '';
   //String selectedIndustry = '';
 
+  createProgressIndicator() {
+    return CircularProgressIndicator();
+  }
+
   createAlertDialog(BuildContext context, Widget stockWidget) {
     return showDialog(
         barrierDismissible: false,
@@ -959,6 +963,11 @@ class _PredictionScreenState extends State<PredictionScreen> {
               onTap: () => Navigator.popAndPushNamed(context, '/contactUs'),
             ),
             ListTile(
+              leading: FaIcon(FontAwesomeIcons.trash),
+              title: Text('Delete Account'),
+              onTap: () => Navigator.popAndPushNamed(context, '/deleteAccount'),
+            ),
+            ListTile(
                 leading: FaIcon(FontAwesomeIcons.signOutAlt),
                 title: Text('Sign Out'),
                 onTap: () async {
@@ -1102,20 +1111,22 @@ class _PredictionScreenState extends State<PredictionScreen> {
                   return DropdownMenuItem<Item>(
                     value: indList,
                     onTap: () {
-                      companyName = indList.name.toString();
-                      companyCode = indList.name.toString();
-                      fullCompName = companyName.substring(
-                          companyName.indexOf('('), companyName.indexOf(')'));
-                      fullCompName = fullCompName.replaceAll(')', '');
-                      fullCompName = fullCompName.replaceAll('(', '');
-                      fullCompName = fullCompName.toUpperCase();
-                      companyName =
-                          companyName.substring(0, companyName.indexOf(' '));
+                      setState(() {
+                        companyName = indList.name.toString();
+                        companyCode = indList.name.toString();
+                        fullCompName = companyName.substring(
+                            companyName.indexOf('('), companyName.indexOf(')'));
+                        fullCompName = fullCompName.replaceAll(')', '');
+                        fullCompName = fullCompName.replaceAll('(', '');
+                        fullCompName = fullCompName.toUpperCase();
+                        companyName =
+                            companyName.substring(0, companyName.indexOf(' '));
 
-                      companyCode = companyCode.substring(
-                        (companyCode.indexOf('/') + 1),
-                        companyCode.indexOf(' '),
-                      );
+                        companyCode = companyCode.substring(
+                          (companyCode.indexOf('/') + 1),
+                          companyCode.indexOf(' '),
+                        );
+                      });
 
                       print(companyName);
                       print(companyCode);
@@ -1188,9 +1199,20 @@ class _PredictionScreenState extends State<PredictionScreen> {
                   // print(companyName);
 
                   final snackBar = SnackBar(
-                    duration: Duration(seconds: 10),
+                    duration: Duration(seconds: 60),
                     content: Text(
                         'Communicating with the server. Results will be displayed shortly!'),
+                    action: SnackBarAction(
+                      label: '',
+                      onPressed: () {
+                        // Some code to undo the change.
+                      },
+                    ),
+                  );
+
+                  final snackBar2 = SnackBar(
+                    duration: Duration(seconds: 6),
+                    content: Text('Error communicating with the server!'),
                     action: SnackBarAction(
                       label: '',
                       onPressed: () {
@@ -1207,26 +1229,30 @@ class _PredictionScreenState extends State<PredictionScreen> {
                   // copy ngrok masked address for physical devices
 
                   final response1 = await http.post(
-                    'https://fyp2-stock-prediction.herokuapp.com/PREDICT',
+                    'http://fyp2-stock-prediction.herokuapp.com/PREDICT',
                     body: json.encode({'name': companyName, 'days': numDays}),
                   );
 
                   print(response1);
 
                   final response2 = await http.get(
-                      'https://fyp2-stock-prediction.herokuapp.com/PREDICT');
+                      'http://fyp2-stock-prediction.herokuapp.com/PREDICT');
+
+                  print(response2);
 
                   final decoded =
                       json.decode(response2.body) as Map<String, dynamic>;
 
-                  if (response2 != null) {
+                  if (response2 == null) {
+                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar2);
+                  } else {
                     ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   }
 
                   setState(() {
                     predictMessage = decoded['predict'];
                     currStockPrice = decoded['currPrice'];
-
                     predictMessage = predictMessage.toString();
                     predictMessage = predictMessage.replaceAll('[', '');
                     predictMessage = predictMessage.replaceAll(']', '');

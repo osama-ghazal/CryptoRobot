@@ -86,6 +86,12 @@ class DataPortal extends StatelessWidget {
                 onTap: () => Navigator.popAndPushNamed(context, '/contactUs'),
               ),
               ListTile(
+                leading: FaIcon(FontAwesomeIcons.trash),
+                title: Text('Delete Account'),
+                onTap: () =>
+                    Navigator.popAndPushNamed(context, '/deleteAccount'),
+              ),
+              ListTile(
                   leading: FaIcon(FontAwesomeIcons.signOutAlt),
                   title: Text('Sign Out'),
                   onTap: () async {

@@ -80,6 +80,26 @@ class _InvestmentTipsState extends State<InvestmentTips> {
                         '5',
                         'Checking in on your stocks once per quarter — such as when you receive quarterly reports — is plenty. But it’s hard not to keep a constant eye on the scoreboard. This can lead to overreacting to short-term events, focusing on share price instead of company value, and feeling like you need to do something when no action is warranted.',
                         Colors.teal[400]),
+                    buildCard(
+                        '6',
+                        'Don’t put in your money until you have understood all relevant information regarding the investment.Prepare yourself for the vigorous homework of analyzing company’s annual reports, accounts and other statements while keeping abreast of what\’s happening in the industry, country and elsewhere that may affect your investment.',
+                        Colors.red),
+                    buildCard(
+                        '7',
+                        'The best way to minimize risk is to diversify your investments across various investment products. If equities are your sole investments, it makes sense to diversify between different companies and sectors. In this way, loss made on some investments can be absorbed by gains made in others, keeping the overall return on investments positive.',
+                        Colors.purple),
+                    buildCard(
+                        '8',
+                        'There are essentially two types of sell rules: offensive rules for locking in your profits, and defensive rules for cutting short any losses. To make, keep and compound your stock market profits, it\'s crucial that you learn to use both types of sell rules.',
+                        Colors.yellow[800]),
+                    buildCard(
+                        '9',
+                        'When it comes to understanding the stock market for beginners, learning how to read stock charts can be one of the more intimidating challenges. But it doesn\'t have to be. Once you understand the key concepts of chart reading and why you should use stock charts, you\'ll find it\'s not that hard to view charts to time your buys and sells.',
+                        Colors.blueAccent[100]),
+                    buildCard(
+                        '10',
+                        'Like all worthwhile skills, learning how to invest in stocks takes some time and effort. But the payoff can be life-changing. So start with the basics, and gradually improve your investing skills over time.',
+                        Colors.teal[900]),
                   ],
                 )),
           ],
@@ -150,6 +170,11 @@ class _InvestmentTipsState extends State<InvestmentTips> {
               leading: FaIcon(FontAwesomeIcons.idCard),
               title: Text('Contact Us'),
               onTap: () => Navigator.popAndPushNamed(context, '/contactUs'),
+            ),
+            ListTile(
+              leading: FaIcon(FontAwesomeIcons.trash),
+              title: Text('Delete Account'),
+              onTap: () => Navigator.popAndPushNamed(context, '/deleteAccount'),
             ),
             ListTile(
                 leading: FaIcon(FontAwesomeIcons.signOutAlt),
