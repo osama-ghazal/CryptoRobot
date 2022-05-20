@@ -42,7 +42,7 @@ class _RegisterState extends State<Register> {
           children: [
             Container(
               margin: EdgeInsets.fromLTRB(0, 40.0, 0, 0),
-              child: Image.asset('images/stockvest.png',
+              child: Image.asset('images/dashboard.png',
                   width: double.infinity, height: 150),
             ),
             Container(
@@ -51,7 +51,7 @@ class _RegisterState extends State<Register> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Stock',
+                    'Crypto',
                     style: TextStyle(
                         color: Colors.grey[900],
                         fontSize: 20.0,
@@ -59,7 +59,7 @@ class _RegisterState extends State<Register> {
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Vest',
+                    'Robot',
                     style: TextStyle(
                         color: Colors.blue,
                         fontSize: 20.0,
@@ -140,9 +140,7 @@ class _RegisterState extends State<Register> {
                         content: Text('Registering. Wait for a few seconds!'),
                         action: SnackBarAction(
                           label: '',
-                          onPressed: () {
-                            // Some code to undo the change.
-                          },
+                          onPressed: () {},
                         ),
                       );
 
@@ -152,9 +150,7 @@ class _RegisterState extends State<Register> {
                             'Successfully registered! You may now log in.'),
                         action: SnackBarAction(
                           label: '',
-                          onPressed: () {
-                            // Some code to undo the change.
-                          },
+                          onPressed: () {},
                         ),
                       );
 

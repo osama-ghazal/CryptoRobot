@@ -33,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
                 ),
                 child: Center(
                   child: Text(
-                    'Drawer',
+                    'Menu',
                     style: TextStyle(
                       fontFamily: 'Comfortaa',
                       color: Colors.white,
@@ -49,26 +49,11 @@ class _DashboardState extends State<Dashboard> {
                 onTap: () => Navigator.popAndPushNamed(context, '/dashboard')),
             ListTile(
                 leading: FaIcon(FontAwesomeIcons.chartBar),
-                title: Text('Stock Prediction'),
+                title: Text('Crypto Prediction'),
                 onTap: () => Navigator.popAndPushNamed(context, '/prediction')),
             ListTile(
-              leading: FaIcon(FontAwesomeIcons.pollH),
-              title: Text('Market Summary'),
-              onTap: () => Navigator.popAndPushNamed(context, '/marketSummary'),
-            ),
-            ListTile(
-              leading: FaIcon(FontAwesomeIcons.database),
-              title: Text('Data Portal'),
-              onTap: () => Navigator.popAndPushNamed(context, '/dataPortal'),
-            ),
-            ListTile(
-                leading: FaIcon(FontAwesomeIcons.bullhorn),
-                title: Text('PSX Announcements'),
-                onTap: () =>
-                    Navigator.popAndPushNamed(context, '/announcements')),
-            ListTile(
               leading: FaIcon(FontAwesomeIcons.newspaper),
-              title: Text('Stock Market News'),
+              title: Text('Cypto News'),
               onTap: () => Navigator.popAndPushNamed(context, '/marketNews'),
             ),
             ListTile(
@@ -114,7 +99,7 @@ class _DashboardState extends State<Dashboard> {
             // alignment: Alignment.center,
             width: double.infinity,
             color: Colors.blueGrey[100],
-            child: Image.asset('images/dash.png',
+            child: Image.asset('images/dashboard.png',
                 height: 400, width: 100, fit: BoxFit.contain),
           ),
           Container(
@@ -126,7 +111,7 @@ class _DashboardState extends State<Dashboard> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Stock',
+                  'Crypto',
                   style: TextStyle(
                       color: Colors.grey[900],
                       fontSize: 20.0,
@@ -134,7 +119,7 @@ class _DashboardState extends State<Dashboard> {
                       fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  'Vest',
+                  'Robot',
                   style: TextStyle(
                       color: Colors.blue,
                       fontSize: 20.0,
@@ -147,25 +132,12 @@ class _DashboardState extends State<Dashboard> {
           Container(
             margin: EdgeInsets.only(top: 40.0),
             child: Text(
-              'WELCOME TO YOUR HOME PAGE !',
+              'WELCOME TO Crypto Robot',
               style: TextStyle(
                 fontFamily: 'Raleway',
                 fontWeight: FontWeight.bold,
                 color: Colors.grey[900],
                 fontSize: 20.0,
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 20.0, left: 5.0),
-            child: Text(
-              'TAP ON THE DRAWER ICON ON THE TOP LEFT !',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Raleway',
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
-                fontSize: 17.0,
               ),
             ),
           ),

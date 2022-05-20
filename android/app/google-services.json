@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "168026567600",
-    "firebase_url": "https://fyp-ii-5af8a.firebaseio.com",
-    "project_id": "fyp-ii-5af8a",
-    "storage_bucket": "fyp-ii-5af8a.appspot.com"
+    "project_number": "116321664708",
+    "project_id": "crypto-bot-2b0d6",
+    "storage_bucket": "crypto-bot-2b0d6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:168026567600:android:d88504e7043b815547dc75",
+        "mobilesdk_app_id": "1:116321664708:android:67900aeb0c78b801ee5391",
         "android_client_info": {
           "package_name": "com.example.StockVest"
         }
       },
       "oauth_client": [
         {
-          "client_id": "168026567600-k80ufllpa5tpbrquk3um8o1n8jq8357p.apps.googleusercontent.com",
+          "client_id": "116321664708-e7s6tagmg0lvg17qnt34eek4ag4eutsn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBi1-fBBle0GOaJG3Y1xx2UUOVwg0cX60Y"
+          "current_key": "AIzaSyD0OH0WaFHBYNerYDZGR8ShvBKcGKx75UM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "168026567600-k80ufllpa5tpbrquk3um8o1n8jq8357p.apps.googleusercontent.com",
+              "client_id": "116321664708-e7s6tagmg0lvg17qnt34eek4ag4eutsn.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

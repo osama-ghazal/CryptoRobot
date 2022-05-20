@@ -30,7 +30,7 @@ class _ContactUsState extends State<ContactUs> {
                 ),
                 child: Center(
                   child: Text(
-                    'Drawer',
+                    'Menu',
                     style: TextStyle(
                       fontFamily: 'Comfortaa',
                       color: Colors.white,
@@ -46,26 +46,11 @@ class _ContactUsState extends State<ContactUs> {
                 onTap: () => Navigator.popAndPushNamed(context, '/dashboard')),
             ListTile(
                 leading: FaIcon(FontAwesomeIcons.chartBar),
-                title: Text('Stock Prediction'),
+                title: Text('Crypto Prediction'),
                 onTap: () => Navigator.popAndPushNamed(context, '/prediction')),
             ListTile(
-              leading: FaIcon(FontAwesomeIcons.pollH),
-              title: Text('Market Summary'),
-              onTap: () => Navigator.popAndPushNamed(context, '/marketSummary'),
-            ),
-            ListTile(
-              leading: FaIcon(FontAwesomeIcons.database),
-              title: Text('Data Portal'),
-              onTap: () => Navigator.popAndPushNamed(context, '/dataPortal'),
-            ),
-            ListTile(
-                leading: FaIcon(FontAwesomeIcons.bullhorn),
-                title: Text('PSX Announcements'),
-                onTap: () =>
-                    Navigator.popAndPushNamed(context, '/announcements')),
-            ListTile(
               leading: FaIcon(FontAwesomeIcons.newspaper),
-              title: Text('Stock Market News'),
+              title: Text('Crypto News'),
               onTap: () => Navigator.popAndPushNamed(context, '/marketNews'),
             ),
             ListTile(
@@ -109,7 +94,6 @@ class _ContactUsState extends State<ContactUs> {
             ),
             Container(
               height: 100.0,
-              // alignment: Alignment.center,
               width: double.infinity,
               color: Colors.blueGrey[100],
               child: Image.asset('images/mail.png',
@@ -144,7 +128,7 @@ class _ContactUsState extends State<ContactUs> {
               children: [
                 FlatButton(
                   onPressed: () {
-                    Navigator.popAndPushNamed(context, '/mboFB');
+                    Navigator.popAndPushNamed(context, '/osamaFB');
                   },
                   child: Row(
                     children: [
@@ -152,7 +136,7 @@ class _ContactUsState extends State<ContactUs> {
                       Container(
                         margin: EdgeInsets.only(left: 5.0),
                         child: Text(
-                          'Musub Bin Omair',
+                          'Osama Ghazal',
                           style: TextStyle(color: Colors.grey[600]),
                         ),
                       )
@@ -168,7 +152,7 @@ class _ContactUsState extends State<ContactUs> {
                   height: 20.0,
                   child: FlatButton(
                     onPressed: () {
-                      Navigator.popAndPushNamed(context, '/sharjeelFB');
+                      Navigator.popAndPushNamed(context, '/alaaFB');
                     },
                     child: Row(
                       children: [
@@ -176,7 +160,7 @@ class _ContactUsState extends State<ContactUs> {
                         Container(
                           margin: EdgeInsets.only(left: 5.0),
                           child: Text(
-                            'Sharjeel Sattar Mughal',
+                            'Alaa Zaid',
                             style: TextStyle(color: Colors.grey[600]),
                           ),
                         )
@@ -203,7 +187,7 @@ class _ContactUsState extends State<ContactUs> {
                       Container(
                         margin: EdgeInsets.only(left: 5.0),
                         child: Text(
-                          'musubbinomair@gmail.com',
+                          'osamaghazal@gmail.com',
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       )
@@ -222,7 +206,7 @@ class _ContactUsState extends State<ContactUs> {
                     Container(
                       margin: EdgeInsets.only(left: 5.0),
                       child: Text(
-                        'sharjeelmughal87@gmail.com',
+                        'alaazaid@gmail.com',
                         style: TextStyle(color: Colors.grey[700]),
                       ),
                     )
@@ -247,7 +231,7 @@ class _ContactUsState extends State<ContactUs> {
                       Container(
                         margin: EdgeInsets.only(left: 5.0),
                         child: Text(
-                          '0331-711-9843',
+                          '+972 597 528821',
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       )
@@ -267,7 +251,7 @@ class _ContactUsState extends State<ContactUs> {
                       Container(
                         margin: EdgeInsets.only(left: 5.0),
                         child: Text(
-                          '0345-555-1581',
+                          '+972 597 528821',
                           style: TextStyle(color: Colors.grey[700]),
                         ),
                       )

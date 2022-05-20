@@ -44,7 +44,7 @@ class _DeleteProfileState extends State<DeleteProfile> {
                 ),
                 child: Center(
                   child: Text(
-                    'Drawer',
+                    'Menu',
                     style: TextStyle(
                       fontFamily: 'Comfortaa',
                       color: Colors.white,
@@ -60,26 +60,11 @@ class _DeleteProfileState extends State<DeleteProfile> {
                 onTap: () => Navigator.popAndPushNamed(context, '/dashboard')),
             ListTile(
                 leading: FaIcon(FontAwesomeIcons.chartBar),
-                title: Text('Stock Prediction'),
+                title: Text('Crypto Prediction'),
                 onTap: () => Navigator.popAndPushNamed(context, '/prediction')),
             ListTile(
-              leading: FaIcon(FontAwesomeIcons.pollH),
-              title: Text('Market Summary'),
-              onTap: () => Navigator.popAndPushNamed(context, '/marketSummary'),
-            ),
-            ListTile(
-              leading: FaIcon(FontAwesomeIcons.database),
-              title: Text('Data Portal'),
-              onTap: () => Navigator.popAndPushNamed(context, '/dataPortal'),
-            ),
-            ListTile(
-                leading: FaIcon(FontAwesomeIcons.bullhorn),
-                title: Text('PSX Announcements'),
-                onTap: () =>
-                    Navigator.popAndPushNamed(context, '/announcements')),
-            ListTile(
               leading: FaIcon(FontAwesomeIcons.newspaper),
-              title: Text('Stock Market News'),
+              title: Text('Crypto News'),
               onTap: () => Navigator.popAndPushNamed(context, '/marketNews'),
             ),
             ListTile(
@@ -202,12 +187,9 @@ class _DeleteProfileState extends State<DeleteProfile> {
                           content: Text('Account successfully deleted!'),
                           action: SnackBarAction(
                             label: '',
-                            onPressed: () {
-                              // Some code to undo the change.
-                            },
+                            onPressed: () {},
                           ),
                         );
-                        //ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
                         if (_formKey.currentState.validate()) {
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);

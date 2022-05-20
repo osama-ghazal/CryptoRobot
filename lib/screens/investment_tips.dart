@@ -62,7 +62,7 @@ class _InvestmentTipsState extends State<InvestmentTips> {
                   children: [
                     buildCard(
                         '1',
-                        'SUCCESS IN INVESTING DOESN’T CORRELATE WITH IQ. WHAT YOU NEED IS THE TEMPERAMENT TO CONTROL THE URGES THAT GET OTHER PEOPLE INTO TROUBLE IN INVESTING. THAT IS WISDOM FROM WARREN BUFFETT, CHAIRMAN OF BERKSHIRE HATHAWAY AND AN OFT-QUOTED INVESTING SAGE AND ROLE MODEL FOR INVESTORS SEEKING LONG-TERM, MARKET-BEATING, WEALTH-BUILDING RETURNS',
+                        'SUCCESS IN INVESTING DOESN’T CORRELATE WITH IQ. WHAT YOU NEED IS THE TEMPERAMENT TO CONTROL THE URGES THAT GET OTHER PEOPLE INTO TROUBLE IN INVESTING. THAT IS WISDOM FROM WARREN BUFFETT, CHAIRMAN OF BERKSHIRE HATHAWAY AND AN OFT-QUOTED INVESTING SAGE AND ROLE MODEL FOR INVESTORS SEEKING LONG-TERM,',
                         Colors.blueGrey[900]),
                     buildCard(
                         '2',
@@ -117,7 +117,7 @@ class _InvestmentTipsState extends State<InvestmentTips> {
                 ),
                 child: Center(
                   child: Text(
-                    'Drawer',
+                    'Menu',
                     style: TextStyle(
                       fontFamily: 'Comfortaa',
                       color: Colors.white,
@@ -133,26 +133,11 @@ class _InvestmentTipsState extends State<InvestmentTips> {
                 onTap: () => Navigator.popAndPushNamed(context, '/dashboard')),
             ListTile(
                 leading: FaIcon(FontAwesomeIcons.chartBar),
-                title: Text('Stock Prediction'),
+                title: Text('Crypto Prediction'),
                 onTap: () => Navigator.popAndPushNamed(context, '/prediction')),
             ListTile(
-              leading: FaIcon(FontAwesomeIcons.pollH),
-              title: Text('Market Summary'),
-              onTap: () => Navigator.popAndPushNamed(context, '/marketSummary'),
-            ),
-            ListTile(
-              leading: FaIcon(FontAwesomeIcons.database),
-              title: Text('Data Portal'),
-              onTap: () => Navigator.popAndPushNamed(context, '/dataPortal'),
-            ),
-            ListTile(
-                leading: FaIcon(FontAwesomeIcons.bullhorn),
-                title: Text('PSX Announcements'),
-                onTap: () =>
-                    Navigator.popAndPushNamed(context, '/announcements')),
-            ListTile(
               leading: FaIcon(FontAwesomeIcons.newspaper),
-              title: Text('Stock Market News'),
+              title: Text('Crypto News'),
               onTap: () => Navigator.popAndPushNamed(context, '/marketNews'),
             ),
             ListTile(

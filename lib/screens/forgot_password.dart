@@ -31,7 +31,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             children: [
               Container(
                 margin: EdgeInsets.fromLTRB(0, 40, 0, 0),
-                child: Image.asset('images/stockvest.png',
+                child: Image.asset('images/dashboard.png',
                     width: double.infinity, height: 150),
               ),
               Container(
@@ -40,7 +40,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Stock',
+                      'Crypto',
                       style: TextStyle(
                           color: Colors.grey[900],
                           fontSize: 20.0,
@@ -48,7 +48,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      'Vest',
+                      'Robot',
                       style: TextStyle(
                           color: Colors.blue,
                           fontSize: 20.0,
